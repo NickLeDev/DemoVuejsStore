@@ -1,4 +1,5 @@
 <script>
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   name: 'ProgressionBar',
@@ -8,8 +9,14 @@ export default {
     };
   },
   computed: {
+    ...mapState('simple', {
+      storeCurrentStep: state => state.currentStep,
+    }),
+
+    ...mapGetters('simple', ['getNumberOfSteps']),
+
     progress() {
-      return 10 + '%';
+      return ((this.storeCurrentStep / this.getNumberOfSteps) * 100) + '%';
     }
   },
 }
@@ -54,7 +61,7 @@ export default {
       ></div>
     </div>
     <div class="progression__steps">
-      1/10 steps
+      {{ storeCurrentStep }}/{{ getNumberOfSteps }} steps
     </div>
   </div>
 </template>

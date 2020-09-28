@@ -28,6 +28,8 @@
 
   .page__main {
     .home & {
+      display: flex;
+      justify-content: space-between;
       flex: 70%;
       padding: 20px;
     }
