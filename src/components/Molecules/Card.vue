@@ -33,15 +33,22 @@ export default {
     font-size: 4rem;
     font-weight: bold;
   }
+
+  .card__title {
+    font-size: 3rem;
+    font-weight: 500;
+  }
 </style>
 
 <template>
   <div class="card">
-    <div class="card__count">
-      {{ count }}
-    </div>
-    <div class="card__text">
-      {{ text }}
-    </div>
+    <slot name="content">
+      <div class="card__count">
+        {{ count }}
+      </div>
+      <div class="card__text">
+        {{ text }}
+      </div>
+    </slot>
   </div>
 </template>

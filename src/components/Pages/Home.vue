@@ -1,7 +1,7 @@
 <script>
   import DefaultPage from "./Default.vue";
   import Card from '../Molecules/Card.vue';
-  import ProgressionCard from '../Molecules/ProgressionCard.vue';
+  import ProgressionBar from '../Molecules/ProgressionBar.vue';
 
   export default {
     name: 'HomePage',
@@ -9,7 +9,7 @@
     components: {
       DefaultPage,
       Card,
-      ProgressionCard,
+      ProgressionBar,
     },
 
     data() {
@@ -30,7 +30,11 @@
       <Card />
     </template>
     <template v-slot:aside>
-      <ProgressionCard />
+      <Card>
+        <template v-slot:content>
+          <ProgressionBar />
+        </template>
+      </Card>
     </template>
   </default-page>
 </template>
